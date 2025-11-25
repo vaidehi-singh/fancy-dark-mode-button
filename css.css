@@ -1,0 +1,314 @@
+body{
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:  rgb(188 184 184);
+}
+.outer-tog{
+    width: 151px;
+    height: 70px;
+    border-radius: 40px;
+    background-color: lightskyblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow:inset 0px 5px 9px -2px #000000, inset 0px -5px 24px -7px #282727, -1px -10px 8px -8px #282727, 0px 10px 4px -7px white;
+}
+#check{
+    opacity: 0;
+    background-color: black;
+    width: 77%;
+    margin: 0;
+    height: 81%;
+    z-index: 10;
+}
+.layers1, .layers2, .layers3{
+    position: absolute;
+    top: -10px;
+    left: -155px;
+    box-shadow: inset 27px 11px 10px 2px #000000, inset 26px -16px 24px -7px #282727;
+}
+.layers1{
+    background-color:  #d3eefe;;
+    width: 79%;
+    height: 130%;
+    border-radius: 70px;
+    z-index: 3;
+}
+.layers2{
+    background-color: #bfe2f8;
+    width: 90%;
+    height: 130%;
+    border-radius: 70px;
+    z-index: 2;
+}
+.layers3{
+    background-color: #a4dbfd;
+    width: 103%;
+    height: 130%;
+    border-radius: 70px;
+    z-index: 1;
+}
+.layers4, .layers5, .layers6{
+    position: absolute;
+    top: -10px;
+    right: -155px;
+    box-shadow: inset -24px 12px 10px 2px #000000, inset -27px -2px 31px 5px #000000;
+}
+.layers4{
+    background-color: #454545;
+    width: 79%;
+    height: 130%;
+    border-radius: 70px;
+    z-index: 3;
+}
+.layers5{
+    background-color: #343434;
+    width: 90%;
+    height: 130%;
+    border-radius: 70px;
+    z-index: 2;
+}
+.layers6{
+    background-color: #2c2c2c;
+    width: 103%;
+    height: 130%;
+    border-radius: 70px;
+    z-index: 1;
+}
+#check:checked ~.in-tog{
+    animation-name: tog;
+    animation-timing-function: linear;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+}
+#check:not(:checked) ~ .in-tog {
+    animation-name: undo-tog;
+    animation-timing-function: linear;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+}
+#check:not(:checked) ~.layers1, #check:not(:checked) ~.layers2, #check:not(:checked) ~.layers3{
+    animation-name: slider-day;
+    animation-timing-function: linear;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+}
+#check:checked ~ .layers4, #check:checked ~.layers5, #check:checked ~.layers6{
+    animation-name: slider-night;
+    animation-timing-function: linear;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+}
+#check:checked ~.moon{
+    animation-name: mooon-slide;
+    animation-timing-function: linear;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+}
+.in-tog{
+    position: absolute;
+    top: 5px;
+    left: 7px;
+    width: 40%;
+    height: 84%;
+    border-radius: 33px;  
+    z-index: 4;  
+    overflow: hidden;
+}
+.moon{
+    position: absolute;
+    top: 0px;
+    left: 62px;
+    width: 100%;
+    height: 100%;
+    border-radius: 33px;
+    z-index: 4;
+    background-color: rgb(122, 122, 122);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 8px 8px 13px -5px #000000, inset -4px 9px 5px -7px #fffefe, inset -5px -4px 8px -6px #7d7d7d, inset -6px -7px 7px -2px #191919;
+}
+.l{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    height: 100%;
+    width: 60%;
+}
+.dots{
+    width: 22px;
+    height: 22px;
+    border-radius: 15px;
+    background-color: rgb(18, 18, 18);
+    box-shadow: -5px -6px 4px -3px white;
+}
+.r{
+    width: 19px;
+    height: 19px;
+    border-radius: 20px;
+    background-color: rgb(18, 18, 18);
+    box-shadow: -5px -6px 4px -3px white;
+}
+.stars{
+    background-color: transparent;
+    width: 151px;
+    height: 70px;
+    border-radius: 40px;
+    position: absolute;
+    z-index: 4;
+    top: 0px;
+    left: 121px;
+}
+.star11{
+    background-color: white;
+    height: 16%;
+    width: 2%;
+    border-radius: 6px;
+    position: absolute;
+    top: 19px;
+    left: 32px;
+}
+.star12{
+    background-color: white;
+    height: 3%;
+    width: 8%;
+    border-radius: 6px;
+    position: absolute;
+    top: 23px;
+    left: 28px;
+}
+.star21{
+    background-color: white;
+    width: 1%;
+    height: 10%;
+    position: absolute;
+    top: 27px;
+    left: 60px;
+    border-radius: 1px;
+}
+.star22{
+    background-color: white;
+    width: 6%;
+    height: 2%;
+    position: absolute;
+    top: 29px;
+    left: 56px;
+    border-radius: 1px;
+}
+.clouds{
+    position: absolute;
+    z-index: 4;
+    width: 100%;
+    height: 70px;
+    left: 0;
+    border-radius: 40px;
+}
+.clds{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 54px;
+    right: -50px;
+    z-index: 4;
+    height: 30px;
+    width: 120px;
+}
+.shadows{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 40px;
+    z-index: 5;
+}
+.c{
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 16px;
+    position: absolute;
+}
+.clouds2{
+    z-index: 3;
+}
+.clouds2 .clds{
+    top: 45px;
+    right: -50px;
+}
+.clouds2 .clds .c{
+    background-color: #dbdbdb;
+}
+@keyframes tog {
+    from{
+        left: 7px;
+        background-color: yellow;
+        box-shadow: 8px 8px 11px -3px #313131, inset 4px 4px 11px -3px #ffffff, inset -5px -4px 8px -6px #7d7d7d;
+    }
+    to{
+        left: 83px;
+        background-color: white;
+        box-shadow: 8px 8px 13px -5px #000000, inset -4px 9px 5px -7px #fffefe, inset -5px -4px 8px -6px #7d7d7d, inset -6px -7px 7px -2px #191919;
+    }
+}
+@keyframes undo-tog {
+    from{
+        left: 83px;
+        background-color: white;
+        box-shadow: 8px 8px 13px -5px #000000, inset -4px 9px 5px -7px #fffefe, inset -5px -4px 8px -6px #7d7d7d, inset -6px -7px 7px -2px #191919;
+    }
+    to{
+        left: 7px;
+        background-color: yellow;
+        box-shadow: 8px 8px 11px -3px #313131, inset 8px 8px 11px -3px #ffffff, inset -5px -4px 8px -6px #7d7d7d;
+    }
+}
+@keyframes slider-day {
+    from{
+        left: -155px;
+    }
+    to{
+        left: -35px;
+    }
+}
+@keyframes slider-night {
+    from{
+        right: -155px;
+    }
+    to{
+        right: -35px
+    }
+}
+@keyframes moon-slide {
+    from{
+        left: 62px;
+    }
+    to{
+        left: 0px;
+    }
+}
+@keyframes stars-slide {
+    from{
+        left: 121px;
+    }
+    to{
+        left: -9px;
+    }
+}
+@keyframes cloud-slide {
+    from{
+        left: 0;
+        box-shadow: inset -8px -11px 15px -12px black;
+    }
+    to{
+        left: 86px;
+        box-shadow: none;
+    }
+}
